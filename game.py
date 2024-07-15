@@ -61,5 +61,5 @@ class Game:
             
         return self.is_game_over
 
-game = Game()
-game.start(is_debug = True)
+if __name__ == "__main__":
+    Game().start(is_debug = True)
