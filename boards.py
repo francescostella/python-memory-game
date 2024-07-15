@@ -7,9 +7,9 @@ class Board:
             "cat", "dog", "fox", "cow", "owl", "bee", "pig", "ape"
         ]
         
-        self.items = self.create_board()
+        self.items = self.create()
     
-    def create_board(self):
+    def create(self):
         # double the list
         list_words = self.words + self.words
 
