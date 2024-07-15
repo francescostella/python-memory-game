@@ -7,10 +7,13 @@ class Game:
     
     def start(self, is_debug = False):
         self.board = Board()
+        
+        first_card = None
+        second_card = None
 
         while not self.is_game_over:
             os.system("clear")
-            
+                
             if is_debug:
                 print("Is game over: ", self.check_if_game_over(), "\n") # DEV
             
@@ -18,25 +21,24 @@ class Game:
             
             self.board.draw(is_debug)
             
+            if first_card and second_card:
+                print(f"{first_choice.upper()}: {first_card}")
+                print(f"{second_choice.upper()}: {second_card}")
+                print("Are cards equal?  ", "Yes" if first_card == second_card else "No", "\n")
+            
             # prompt the user asking for 2-cards pick
             first_choice = input("Choose first card:  ")
             second_choice = input("Choose second card:  ")
             
             try:
+                # 1. get cards from the board
                 first_card = self.board.items[int(first_choice[1]) - 1][first_choice[0].upper()]
                 second_card = self.board.items[int(second_choice[1]) - 1][second_choice[0].upper()]
-            except (IndexError, TypeError, ValueError):
+            except (IndexError, KeyError, TypeError, ValueError):
                 print("An invalid card position has been chosen.")
                 self.pause()
             else:
-                # 1. get cards from the board
-                print(f"{first_choice.upper()}: {first_card}")
-                print(f"{second_choice.upper()}: {second_card}")
-                
-                # 2. compare cards
-                print("Are cards equal?  ", "Yes" if first_card == second_card else "No")
-                
-                # 3. IF eq => flip cards
+                # IF cards are eq then flip both cards
                 if first_card == second_card:
                     first_card.reveal()
                     second_card.reveal()
