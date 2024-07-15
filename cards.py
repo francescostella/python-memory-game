@@ -17,3 +17,11 @@ class Card:
             return self.value
         else:
             return "   "
+    
+if __name__ == "__main__":
+    card1 = Card("dog")
+    card2 = Card("dog")
+    card3 = Card("cat")
+    
+    print(f"{card1} == {card2}", card1 == card2)
+    print(f"{card1} == {card3}", card1 == card3)
