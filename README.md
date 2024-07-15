@@ -3,5 +3,5 @@
 To run the game:
 
 ```bash
-$ python game.py
+python game.py
 ```
