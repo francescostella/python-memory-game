@@ -1,6 +1,7 @@
 # Memory Game in Python
 
-<img src="https://github.com/user-attachments/assets/7b8d7e5d-1f75-42a9-9678-c46ebed098df" width="350">
+<img src="https://github.com/user-attachments/assets/9b671362-30f0-4894-a78c-6fc600cdf7b6" width="800">
+
 
 [Screenshot of the game with debug mode enable]
 
