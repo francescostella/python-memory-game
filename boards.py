@@ -38,13 +38,19 @@ class Board:
             self.draw_grid(is_debug = True)
     
     def draw_grid(self, is_debug = False):
-        counter = 1
+        row_counter = 1
+        
+        # Header
         print("    |   A   |   B   |   C   |   D   |")
+        
+        # Cards grid
         for row in self.items:
-            print_row = f"   {counter}|"
+            print_row = f"   {row_counter}|"
             for key, card in row.items():
                 print_row += f"  {card.render(is_debug)}  |"
             print(f"{print_row}")
-            counter += 1
+            row_counter += 1
+        
+        # Footer
         print("\n")
     
