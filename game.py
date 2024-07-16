@@ -4,6 +4,7 @@ from boards import Board
 class Game:
     def __init__(self):
         self.is_game_over = False
+        self.exit_game = False
     
     def start(self, is_debug = False):
         self.board = Board()
@@ -11,12 +12,13 @@ class Game:
         first_card = None
         second_card = None
 
-        while not self.is_game_over:
+        while not self.is_game_over and not self.exit_game:
             os.system("clear")
                 
             if is_debug:
                 print("Is game over: ", self.check_if_game_over(), "\n") # DEV
             
+            print("Enter EXIT to quit the game.\n")
             print("               MEMORY GAME\n")
             
             self.board.draw(is_debug)
@@ -28,7 +30,18 @@ class Game:
             
             # prompt the user asking for 2-cards pick
             first_choice = input("Choose first card:  ")
+            
+            if first_choice.upper() == "EXIT":
+                self.exit_game = True
+                print("Exiting the game...")
+                break
+                
             second_choice = input("Choose second card:  ")
+            
+            if second_choice.upper() == "EXIT":
+                self.exit_game = True
+                print("Exiting the game...")
+                break
             
             try:
                 # 1. get cards from the board
