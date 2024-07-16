@@ -26,7 +26,11 @@ class Game:
             if first_card and second_card:
                 print(f"{first_choice.upper()}: {first_card}")
                 print(f"{second_choice.upper()}: {second_card}")
-                print("Are cards equal?  ", "Yes" if first_card == second_card else "No", "\n")
+                
+                if first_choice.upper() == second_choice.upper():
+                    print("You need to pick two distinct cards.\n")
+                else:
+                    print("Are cards equal?  ", "Yes" if first_card == second_card else "No", "\n")
             
             # prompt the user asking for 2-cards pick
             first_choice = input("Choose first card:  ")
@@ -52,7 +56,7 @@ class Game:
                 self.pause()
             else:
                 # IF cards are eq then flip both cards
-                if first_card == second_card:
+                if first_card == second_card and first_choice.upper() != second_choice.upper():
                     first_card.reveal()
                     second_card.reveal()
                 
