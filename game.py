@@ -14,9 +14,6 @@ class Game:
 
         while not self.is_game_over and not self.exit_game:
             os.system("clear")
-                
-            if is_debug:
-                print("Is game over: ", self.check_if_game_over(), "\n") # DEV
             
             print("Enter EXIT to quit the game.\n")
             print("               MEMORY GAME\n")
@@ -32,6 +29,9 @@ class Game:
                 else:
                     print("Are cards equal?  ", "Yes" if first_card == second_card else "No", "\n")
             
+            if is_debug:
+                print("DEBUG: Is game over: ", self.check_if_game_over(), "\n") # DEV
+
             # prompt the user asking for 2-cards pick
             first_choice = input("Choose first card:  ")
             
@@ -39,7 +39,7 @@ class Game:
                 self.exit_game = True
                 print("Exiting the game...")
                 break
-                
+            
             second_choice = input("Choose second card:  ")
             
             if second_choice.upper() == "EXIT":
