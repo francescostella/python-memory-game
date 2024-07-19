@@ -21,8 +21,11 @@ class Game:
             self.board.draw(is_debug)
             
             if first_card and second_card:
-                print(f"{first_choice.upper()}: {first_card}")
-                print(f"{second_choice.upper()}: {second_card}")
+                first_label = first_choice.upper() if first_choice.upper() else "Card 1"
+                second_label = second_choice.upper() if second_choice.upper() else "Card 2"
+                
+                print(f"{first_label}: {first_card}")
+                print(f"{second_label}: {second_card}")
                 
                 if first_choice.upper() == second_choice.upper():
                     print("You need to pick two distinct cards.\n")
